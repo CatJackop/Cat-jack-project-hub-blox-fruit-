@@ -1,7 +1,7 @@
 --//==================================================
 --// CAT HUB
 --// Created by @catjack.gg
---// Roblox Studio - LocalScript
+--// 
 --//==================================================
 
 local Players = game:GetService("Players")
@@ -192,13 +192,13 @@ Execute.MouseButton1Click:Connect(function()
 	-- Hide the entire CAT HUB GUI after clicking Execute
 	ScreenGui.Enabled = false
 	if World1 then
-		-- Add your own World 1 code here.
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CatJackop/Cat-jack-project-hub-blox-fruit-/refs/heads/main/CATHUB.lua"))()-- Add your own World 1 code here.
 		print("CAT HUB: World 1 selected")
 	elseif World2 then
-		-- Add your own World 2 code here.
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CatJackop/Cat-jack-project-hub-blox-fruit-/refs/heads/main/CATHUB.lua"))()-- Add your own World 2 code here.
 		print("CAT HUB: World 2 selected")
 	elseif World3 then
-		-- Add your own World 3 code here.
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CatJackop/Cat-jack-project-hub-blox-fruit-/refs/heads/main/CATHUB.lua"))()-- Add your own World 3 code here.
 		print("CAT HUB: World 3 selected")
 	else
 		warn("CAT HUB: Unsupported Place ID")
