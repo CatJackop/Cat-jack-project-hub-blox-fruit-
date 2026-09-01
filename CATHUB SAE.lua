@@ -1,9 +1,9 @@
 -- ══════════════════════════════════════════════════════════════════════════════
--- OXIDE-style Copy Discord Invite
+-- CAT HUB-style Copy Discord Invite
 -- Standalone UI — same look as the Oxide library, no external dependencies.
 -- ══════════════════════════════════════════════════════════════════════════════
 
-local DISCORD_INVITE = "https://discord.gg/8VxyzMMjfh" -- CHANGE THIS to your actual invite
+local DISCORD_INVITE = https://discord.gg/EYQ7XEMUpj" -- CHANGE THIS to your actual invite
 
 -- Re-execution guard
 do
@@ -216,7 +216,7 @@ local screenGui = make("ScreenGui", {
 })
 
 local container = make("Frame", {
-    Name = "OxideContainer",
+    Name = "CATHUBContainer",
     Size = UDim2.fromOffset(WINDOW_W, WINDOW_H + HOTBAR_GAP + HOTBAR_H),
     Position = UDim2.fromScale(0.5, 0.5),
     AnchorPoint = Vector2.new(0.5, 0.5),
@@ -513,7 +513,7 @@ local statusDot = make("Frame", {
 circle(statusDot)
 
 make("TextLabel", {
-    Text = "Oxide is ready",
+    Text = "CAT HUB is ready",
     Font = Enum.Font.GothamMedium,
     TextSize = 10,
     TextColor3 = C.TextDim,
