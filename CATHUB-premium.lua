@@ -44,7 +44,7 @@ if World1 then MaterialList = {"Leather + Scrap Metal", "Angel Wings", "Magma Or
 elseif World2 then MaterialList = {"Leather + Scrap Metal", "Radioactive Material", "Ectoplasm", "Mystic Droplet", "Magma Ore", "Vampire Fang"}
 elseif World3 then MaterialList = {"Scrap Metal", "Demonic Wisp", "Conjured Cocoa", "Dragon Scale", "Gunpowder", "Fish Tail", "Mini Tusk"}
 end
-local DungeonTables = {"Flame","Ice","Quake","Light","Dark","String","Rumble","Magma","Human: Buddha","Sand","Bird: Phoenix","Dough"}
+local DungeonTables = {"Flame","Ice","Quake","Light","Dark","Spider","Magma","Buddha","Sand","Bird: Phoenix","Dough"}
 local RenMon = {"Snow Lurker","Arctic Warrior","Hidden Key","Awakened Ice Admiral"}
 local CursedTables = {["Mob"] = "Mythological Pirate",["Mob2"] = "Cursed Skeleton","Hell's Messenger",["Mob3"] = "Cursed Skeleton","Heaven's Guardian"}
 local Past = {"Part","SpawnLocation","Terrain","WedgePart","MeshPart"}
