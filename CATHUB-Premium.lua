@@ -6,7 +6,7 @@ do
   Lv = game.Players.LocalPlayer.Data.Level.Value
   TeleportService = game:GetService("TeleportService")
 
-DISCORD_WEBHOOK = "PASTE_YOUR_WEBHOOK_URL_HERE"
+DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1543865616367091764/AQmFSABS3Kp9MnqfFuQdM4EUfN0igHapbutCFJYaDmrRpcTHmXzRnszoEqLmnfBc2tvN"
   TW = game:GetService("TweenService")
   Lighting = game:GetService("Lighting")
   Enemies = workspace.Enemies
