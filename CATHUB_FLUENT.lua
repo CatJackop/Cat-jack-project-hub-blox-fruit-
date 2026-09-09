@@ -32,7 +32,6 @@ TeleportService = game:GetService("TeleportService")
 
 do
 
-DISCORD_WEBHOOK = "PASTE_YOUR_WEBHOOK_URL_HERE"
   TW = game:GetService("TweenService")
   Lighting = game:GetService("Lighting")
   Enemies = workspace.Enemies
