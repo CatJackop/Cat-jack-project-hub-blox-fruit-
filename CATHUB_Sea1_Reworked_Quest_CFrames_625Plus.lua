@@ -124,15 +124,26 @@ Attack.Pos = function(model,dist) return (Root.Position - mode.Position).Magnitu
 Attack.Dist = function(model,dist) return (Root.Position - model:FindFirstChild("HumanoidRootPart").Position).Magnitude <= dist end
 Attack.DistH = function(model,dist) return (Root.Position - model:FindFirstChild("HumanoidRootPart").Position).Magnitude > dist end
 Attack.Kill = function(model,Succes)
-  if model and Succes then
-  if not model:GetAttribute("Locked") then model:SetAttribute("Locked",model.HumanoidRootPart.CFrame) end
+  if not (model and Succes) then return end
+  local humanoid = model:FindFirstChildOfClass("Humanoid")
+  local hrp = model:FindFirstChild("HumanoidRootPart")
+  if not humanoid or not hrp or humanoid.Health <= 0 then return end
+  if not model:GetAttribute("Locked") then model:SetAttribute("Locked", hrp.CFrame) end
   PosMon = model:GetAttribute("Locked").Position
-  BringEnemy()
+  pcall(BringEnemy)
   EquipWeapon(_G.SelectWeapon)
-  local Equipped = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
-  local ToolTip = Equipped.ToolTip
-  if ToolTip == "Blox Fruit" then _tp(model.HumanoidRootPart.CFrame * CFrame.new(0,10,0) * CFrame.Angles(0,math.rad(90),0)) else _tp(model.HumanoidRootPart.CFrame * CFrame.new(0,30,0) * CFrame.Angles(0,math.rad(180),0))end
-  if RandomCFrame then wait(.5)_tp(model.HumanoidRootPart.CFrame * CFrame.new(0, 30, 25)) wait(.5)_tp(model.HumanoidRootPart.CFrame * CFrame.new(25, 30, 0)) wait(.5)_tp(model.HumanoidRootPart.CFrame * CFrame.new(-25, 30 ,0)) wait(.5)_tp(model.HumanoidRootPart.CFrame * CFrame.new(0, 30, 25)) wait(.5)_tp(model.HumanoidRootPart.CFrame * CFrame.new(-25, 30, 0))end
+  local char = game.Players.LocalPlayer.Character
+  local equipped = char and char:FindFirstChildOfClass("Tool")
+  local toolTip = equipped and equipped.ToolTip or ""
+  if toolTip == "Blox Fruit" then
+    _tp(hrp.CFrame * CFrame.new(0,10,0) * CFrame.Angles(0,math.rad(90),0))
+  else
+    _tp(hrp.CFrame * CFrame.new(0,30,0) * CFrame.Angles(0,math.rad(180),0))
+  end
+  if RandomCFrame then
+    task.wait(.2); _tp(hrp.CFrame * CFrame.new(0,30,25))
+    task.wait(.2); _tp(hrp.CFrame * CFrame.new(25,30,0))
+    task.wait(.2); _tp(hrp.CFrame * CFrame.new(-25,30,0))
   end
 end
 Attack.Kill2 = function(model,Succes)
@@ -2041,7 +2052,13 @@ task.spawn(function()
                         for _, v in pairs(replicated:GetChildren()) do
                             if v.Name == enemyName and Attack.Alive(v) then
                                 foundMob = true
-                                _tp(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                repeat
+                                    task.wait(Sec)
+                                    if v:FindFirstChild("HumanoidRootPart") then
+                                        _tp(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
+                                        Attack.Kill(v, _G.Level)
+                                    end
+                                until not _G.Level or not v.Parent or not Attack.Alive(v) or not questUI.Visible
                                 break
                             end
                         end
